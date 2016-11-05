@@ -38,9 +38,9 @@ void HoltWinters (
 
           /* return values */
           double *SSE,          // The final sum of squared errors achieved in optimizing
-          double *level,        // Estimated values for the level component (size xl - t + 1)
-          double *trend,        // Estimated values for the trend component (size xl - t + 1)
-          double *season        // Estimated values for the seasonal component (size xl - t + 1)
+          double *level,        // Estimated values for the level component (size xl - t + 2)
+          double *trend,        // Estimated values for the trend component (size xl - t + 2)
+          double *season        // Estimated values for the seasonal component (size xl - t + 2)
     )
 
 {
@@ -110,10 +110,10 @@ int main() {
     double s[] = {};
 
     double errors;
-    int nb_computations = forecast - start_time - 1;
-    double *estimated_level = malloc(nb_computations * sizeof(double));
-    double *estimated_trend = malloc(nb_computations * sizeof(double));
-    double *estimated_season = malloc(nb_computations * sizeof(double));
+    int nb_computations = forecast - start_time + 2;
+    double *estimated_level = calloc(nb_computations, sizeof(double));
+    double *estimated_trend = calloc(nb_computations, sizeof(double));
+    double *estimated_season = calloc(nb_computations, sizeof(double));
 
     HoltWinters(
         series,
