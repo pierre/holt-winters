@@ -39,8 +39,8 @@ void HoltWinters (
           /* return values */
           double *SSE,          // The final sum of squared errors achieved in optimizing
           double *level,        // Estimated values for the level component (size xl - t + 2)
-          double *trend,        // Estimated values for the trend component (size xl - t + 1)
-          double *season        // Estimated values for the seasonal component (size xl - t + 1)
+          double *trend,        // Estimated values for the trend component (size xl - t + 2)
+          double *season        // Estimated values for the seasonal component (size xl - t + 2)
     )
 
 {
