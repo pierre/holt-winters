@@ -2,7 +2,7 @@ OBJDIR := build
 OBJS := $(addprefix $(OBJDIR)/,holt-winters.o)
 
 $(OBJDIR)/%.o : %.c
-	gcc $(OUTPUT_OPTION) $<
+	gcc -O1 -ggdb -Wall -Wextra $(OUTPUT_OPTION) $<
 
 all: $(OBJS)
 
